@@ -58,6 +58,7 @@ utilice el archivo db.sql que estaba tambien en la carpeta claves (esta carpeta 
 Asi, dejé configurados los tres servicios del trabajo: SSH (con acceso mediante clave), Apache con PHP y la base de datos MariaDB. 
 
 A continuacion dejo algunas capturas del punto 2 
+
 ![image](https://github.com/user-attachments/assets/dc250eab-e258-4f04-9b07-b985b2b45da9) Verificacion de SSH activo y configuracion
 ![image](https://github.com/user-attachments/assets/da3b191f-f3db-4779-a08f-0ad4a5a6443c) Muestra que PermitRootLogin esta habilitado
 ![image](https://github.com/user-attachments/assets/390313cb-5b8a-49c3-a916-2e47cc346051) Acceso por clave desde 

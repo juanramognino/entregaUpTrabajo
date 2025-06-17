@@ -59,13 +59,26 @@ Asi, dejé configurados los tres servicios del trabajo: SSH (con acceso mediante
 
 A continuacion dejo algunas capturas del punto 2 
 
-![image](https://github.com/user-attachments/assets/dc250eab-e258-4f04-9b07-b985b2b45da9) Verificacion de SSH activo y configuracion
-![image](https://github.com/user-attachments/assets/da3b191f-f3db-4779-a08f-0ad4a5a6443c) Muestra que PermitRootLogin esta habilitado
-![image](https://github.com/user-attachments/assets/390313cb-5b8a-49c3-a916-2e47cc346051) Acceso por clave desde 
-![image](https://github.com/user-attachments/assets/97cd4ebf-3542-4e81-a14f-ed0844234350) Sitio web funcionando
-![image](https://github.com/user-attachments/assets/f3c83389-5667-49d8-a586-764c2802d80f) Verificacion del servicio MariaDB
-![image](https://github.com/user-attachments/assets/0376c076-f400-4295-b46d-f38de872a933) MariaDB esta activo y la base db.sql importada.
-![image](https://github.com/user-attachments/assets/e5762fe4-48db-467f-bf3f-b1382c37bc00) se instalo Apache y PHP 
+Verificacion de SSH activo y configuracion
+![image](https://github.com/user-attachments/assets/dc250eab-e258-4f04-9b07-b985b2b45da9) 
+
+Muestra que PermitRootLogin esta habilitado
+![image](https://github.com/user-attachments/assets/da3b191f-f3db-4779-a08f-0ad4a5a6443c) 
+
+Acceso por clave desde 
+![image](https://github.com/user-attachments/assets/390313cb-5b8a-49c3-a916-2e47cc346051)  
+
+Sitio web funcionando
+![image](https://github.com/user-attachments/assets/97cd4ebf-3542-4e81-a14f-ed0844234350)
+
+Verificacion del servicio MariaDB
+![image](https://github.com/user-attachments/assets/f3c83389-5667-49d8-a586-764c2802d80f) 
+
+MariaDB esta activo y la base db.sql importada.
+![image](https://github.com/user-attachments/assets/0376c076-f400-4295-b46d-f38de872a933) 
+
+se instalo Apache y PHP 
+![image](https://github.com/user-attachments/assets/e5762fe4-48db-467f-bf3f-b1382c37bc00) 
 
 
 Punto 3 – Instalacion y configuracion del servidor web Apache con soporte PHP
@@ -76,9 +89,11 @@ Al entrar a http://192.168.0.253/index.php, pude ver la informacion de PHP carga
 Esta prueba sirvio para confirmar que el servidor Apache estaba corriendo y que el soporte PHP estaba activo. 
 Dejo de nuevo algunas capturas como evidencia.
 
-![image](https://github.com/user-attachments/assets/b7ddda66-9a79-4a47-ab11-bd5cbf0b5c2b) Estado del servicio Apache
-![image](https://github.com/user-attachments/assets/21d1eeb8-0ff0-478d-8baa-dd67d75232fa) Muestr que cree el archivo en /www_dir
- 
+Estado del servicio Apache
+![image](https://github.com/user-attachments/assets/b7ddda66-9a79-4a47-ab11-bd5cbf0b5c2b) 
+
+Muestr que cree el archivo en /www_dir
+![image](https://github.com/user-attachments/assets/21d1eeb8-0ff0-478d-8baa-dd67d75232fa) 
 
 Punto 4 – Instalacion y configuracion del servicio de base de datos MariaDB
 
@@ -88,10 +103,12 @@ Despues de eso, importe db.sql, que ya tenia en la carpeta "claves" del escritor
 Para cargarla, use el comando mysql -u root < /ruta/db.sql. me conecte al motor de base de datos usando mysql -u root y verifique que los datos estuvieran correctamente cargados.
 No tuve problemas con esta parte. El servicio quedo activo, y MariaDB funciono.
 
+Estado del servicio MariaDB activo y habilitado
 ![image](https://github.com/user-attachments/assets/d647abdf-0cfa-4adb-a9b6-0a2f03087dfb) 
 ![image](https://github.com/user-attachments/assets/1ea4f423-9f97-4920-9301-15e4c9bc5654)
-Estado del servicio MariaDB activo y habilitado
-![image](https://github.com/user-attachments/assets/7e8d6479-89c8-46b1-8b85-dbb07f706c3a) Verificación de que se cargo la base
+
+ Verificación de que se cargo la base
+![image](https://github.com/user-attachments/assets/7e8d6479-89c8-46b1-8b85-dbb07f706c3a)
 
 Punto 5 – Automatizacion con cron
 
@@ -100,10 +117,15 @@ La primera tarea hace un backup completo del directorio /var/log todos los dias 
 La segunda tarea hace un backup del directorio /www_dir los lunes, miercoles y viernes a las 23:00 y lo guarda como backup_www.tar.gz, tambien en /backup_dir.
 Lo que hice fue crear un script en /opt/scripts/backup_full.sh que compme las carpetas y lo deje ejecutable. Despues edite el crontab del usuario root agregando las dos lineas para automatizar todo.
 Probe ambas tareas ejecutando el script manualmente. Funciono bien y los archivos se generanon correctamente en el destino.
+ 
+ contenido del script backup_full.sh
+![image](https://github.com/user-attachments/assets/9dcfcae2-9b5f-4a0d-adea-5735dc1485dd)
 
-![image](https://github.com/user-attachments/assets/9dcfcae2-9b5f-4a0d-adea-5735dc1485dd) contenido del script backup_full.sh
-![image](https://github.com/user-attachments/assets/76f978bd-1aea-4e6a-bdb2-3f7bc3b7a1b0) tareas programadas.
-![image](https://github.com/user-attachments/assets/52bed833-07e8-4896-8814-4c70b7130b5a) backups generados
+ tareas programadas.
+![image](https://github.com/user-attachments/assets/76f978bd-1aea-4e6a-bdb2-3f7bc3b7a1b0)
+
+backups generados
+![image](https://github.com/user-attachments/assets/52bed833-07e8-4896-8814-4c70b7130b5a)
 
 
 Punto 6 – Estructura de archivos y subida a GitHub
